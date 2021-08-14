@@ -2,6 +2,7 @@ input.onButtonPressed(Button.A, function () {
     if (ゲームオーバー == 0) {
         if (led.point(0, 4)) {
             led.unplot(0, 4)
+            music.startMelody(music.builtInMelody(Melodies.BaDing), MelodyOptions.Once)
         } else {
             ゲームオーバー = 1
         }
@@ -11,6 +12,7 @@ input.onButtonPressed(Button.AB, function () {
     if (ゲームオーバー == 0) {
         if (led.point(2, 4)) {
             led.unplot(2, 4)
+            music.startMelody(music.builtInMelody(Melodies.BaDing), MelodyOptions.Once)
         } else {
             ゲームオーバー = 1
         }
@@ -20,17 +22,18 @@ input.onButtonPressed(Button.B, function () {
     if (ゲームオーバー == 0) {
         if (led.point(4, 4)) {
             led.unplot(4, 4)
+            music.startMelody(music.builtInMelody(Melodies.BaDing), MelodyOptions.Once)
         } else {
             ゲームオーバー = 1
         }
     }
 })
 let ゲームオーバー = 0
-let 拍子 = 3
-let 速さ = 10
+let 拍子 = 5
+let 速さ = 8
 let 残り拍子 = 拍子
 ゲームオーバー = 0
-soundExpression.giggle.play()
+music.startMelody(music.builtInMelody(Melodies.JumpDown), MelodyOptions.Once)
 for (let index = 0; index < 拍子 + 4; index++) {
     if (ゲームオーバー != 0) {
         break;
@@ -70,6 +73,7 @@ for (let index = 0; index < 拍子 + 4; index++) {
 basic.pause(200)
 if (ゲームオーバー == 0) {
     music.startMelody(music.builtInMelody(Melodies.Ode), MelodyOptions.Once)
+    ゲームオーバー = 1
     for (let index = 0; index < 8; index++) {
         basic.showIcon(IconNames.Happy)
         basic.pause(400)
